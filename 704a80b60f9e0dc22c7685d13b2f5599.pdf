@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>preview</title>
+  <meta charset="utf-8"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="yes" name="apple-touch-fullscreen"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <style>
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body><script id="beacon-aplus" src="//u.alicdn.com/js/aplus_en.js" exparams="userid=&aplus&ali_beacon_id=&ali_apache_id=33%2e1%2e52%2e41%2e1631543809777%2e147625%2e8&ali_apache_track=mt%3d1%7cmid%3dsa19008215799aocb&ali_apache_tracktmp=%22%22&dmtrack_c={}&pageid=056cd4ee212a65d91645431989&hn=clouddisk033042101217%2esg52&asid=AQAAAAC1TBNid1vLKQAAAAC9jQ5BttMn4w=="></script>
+  <script src="https://g.alicdn.com/IMM/office-js/1.1.2/aliyun-web-office-sdk.min.js"></script>
+
+    <div id="preview-zone"></div>
+
+  <script>
+
+    window.onload = init;
+    async function init() {
+      tokenInfo = {
+        "RefreshToken": "08863d6d1f24429b9ffa7a0525010c01v2",
+        "RequestId": "446EB40A-753E-5BA8-A7A2-B84FD4150635",
+        "PreviewURL": "https://office-cn-beijing.imm.aliyuncs.com/office/f/4f7dd9b2f1421013bf22bc000e6281a212b3cf89?hidecmb=1&simple=1&_w_tokentype=1",
+        "AccessToken": "dca89382490b4d73b929ef6695717d2bv2",
+        "RefreshTokenExpiredTime": "2022-02-22T08:26:29.044Z",
+        "AccessTokenExpiredTime": "2022-02-21T08:56:29.044Z"
+      }
+      preview(tokenInfo)
+    }
+    function preview(tokenInfo) {
+
+      let mount = document.getElementById('#preview-zone');
+
+      let ins = aliyun.config({
+        //如果不指定mount，默认挂在到body
+        mount,
+        url: tokenInfo.PreviewURL,
+      });
+      ins.setToken({ token: tokenInfo.AccessToken });
+    }
+  </script>
+  </body>
+
+</html>
